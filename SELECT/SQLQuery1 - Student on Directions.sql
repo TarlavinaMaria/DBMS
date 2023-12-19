@@ -1,3 +1,5 @@
+USE PD_212;
+Go
 SELECT 
     Students.last_name AS'Фамилия', 
 	Students.first_name AS'Имя', 
@@ -18,6 +20,7 @@ WHERE
 --	AND Directions.direction_name = 'java development'
 	AND Directions.direction_name = 'Разработка программного обеспечения'
 	ORDER BY 
-		Students.last_name DESC;
+--		Students.last_name DESC;
+		Students.birth_date DESC;
 --	ASC - Ascending (в порядке возрастания)
 --	DESC - Descending(в порядке убывания)
