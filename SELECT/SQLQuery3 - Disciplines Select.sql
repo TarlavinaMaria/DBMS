@@ -1,0 +1,1 @@
+SELECT * FROM Disciplines WHERE discipline_name LIKE '%MS SQL%'

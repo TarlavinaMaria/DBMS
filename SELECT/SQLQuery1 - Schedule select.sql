@@ -1,3 +1,6 @@
+USE PD_212;
+Go
+
 -- DECLARE - обьявление переменных AS
 DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Java')
 DECLARE @teacher			INT		 = 1
@@ -33,9 +36,12 @@ END
 SELECT 
 	dbo.Disciplines.discipline_name AS'Дисциплина', 
 	dbo.Groups.group_name AS 'Группа',
+	DATENAME(dw, dbo.Schedule.[date]) AS 'День недели',
 	dbo.Schedule.[date] AS 'Дата',
 	dbo.Schedule.[time] AS 'Время',
-	dbo.Teachers.last_name + dbo.Teachers.first_name + dbo.Teachers.middle_name AS 'Преподаватель'
+	dbo.Teachers.last_name + dbo.Teachers.first_name + dbo.Teachers.middle_name AS 'Преподаватель',
+	--	Можно заголовок задать так
+	[Статус] = IIF(Schedule.spent = 1,'Проведено', 'Запланировано')
 FROM
 	dbo.Schedule, dbo.Groups, dbo.Disciplines, dbo.Teachers
 WHERE
