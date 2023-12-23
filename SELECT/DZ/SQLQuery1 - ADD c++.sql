@@ -3,12 +3,13 @@ Go
 
 SET DATEFIRST 1
 -- DECLARE - обьявление переменных AS
-DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Hardware-PC%')
+DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Разработка Windows приложений на языке С++
+%')
 DECLARE @teacher			INT		 = 1
 DECLARE @group				INT		 = 3
-DECLARE @start_date			DATE	 = '2023-12-01'
+DECLARE @start_date			DATE	 = '2022-11-23'
 DECLARE @date				DATE	 = @start_date
-DECLARE @interval			INT		 = IIF(DATEPART(dw, @date) = 5, 3, 2)
+DECLARE @interval			INT		 = 2
 --DECLARE @interval			INT		 = IIF(DATEPART(dw, @date) = 5, 3, 2)
 DECLARE @time				TIME	 = '14:30'
 DECLARE @number_of_lessons	TINYINT	 = (SELECT number_of_lessons FROM dbo.Disciplines WHERE discipline_id = @discipline);
@@ -40,7 +41,10 @@ BEGIN
 		SET			@counter = @counter + 1;
 --	SET			@date = @date + @interval
 	SET			@date = DATEADD(dd, @interval, @date);
-	SET			@interval = IIF(DATEPART(dw, @date) = 5, 3, 2)
+	--SET			@interval = IIF(DATEPART(dw, @date) = 5, 3, 2)
+	IF(@interval = 2) SET @interval = 7
+	ELSE IF(@interval = 7) SET @interval = 5
+	ELSE IF(@interval = 5) SET @interval = 2
 
 END
 
@@ -68,7 +72,7 @@ WHERE
 	dbo.Schedule.discipline = dbo.Disciplines.discipline_id
 AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
-AND dbo.Schedule.discipline = (SELECT discipline_id FROM dbo.Disciplines WHERE discipline_name LIKE '%MS SQL%')
+AND dbo.Schedule.discipline = (SELECT discipline_id FROM dbo.Disciplines WHERE discipline_name LIKE '%Разработка Windows приложений на языке С++%')
 
 -- LIKE критерий отбора
 --SELECT * FROM dbo.Disciplines WHERE discipline_name LIKE '%Java%'
