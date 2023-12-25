@@ -3,7 +3,7 @@ Go
 
 SET DATEFIRST 1
 -- DECLARE - обьявление переменных AS
-DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Hardware-PC%')
+DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%MS SQL Server%')
 DECLARE @teacher			INT		 = 1
 DECLARE @group				INT		 = 3
 DECLARE @start_date			DATE	 = '2023-12-01'
