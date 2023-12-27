@@ -7,7 +7,7 @@ FROM
 WHERE
 	dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Ковтун%')
 AND dbo.Schedule.[date] >= '2023-01-01' 
-AND dbo.Schedule.[date] <= '2023-12-12' 
+AND dbo.Schedule.[date] <= '2023-12-31' 
 
 SELECT AVG(discipline) AS 'AVG'
 FROM 
@@ -15,7 +15,7 @@ FROM
 WHERE
 	dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Ковтун%')
 AND dbo.Schedule.[date] >= '2023-01-01' 
-AND dbo.Schedule.[date] <= '2023-12-12' 
+AND dbo.Schedule.[date] <= '2023-12-31' 
 ---------------------------------------------------------------------------------------------------------------
 SELECT 
 	dbo.Disciplines.discipline_name AS'Дисциплина', 
@@ -34,4 +34,4 @@ AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Ковтун%')
 AND dbo.Schedule.[date] >= '2023-01-01' 
-AND dbo.Schedule.[date] <= '2023-12-12' 
+AND dbo.Schedule.[date] <= '2023-12-31' 

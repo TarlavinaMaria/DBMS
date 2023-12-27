@@ -11,7 +11,7 @@ AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Ковтун%')
 AND dbo.Schedule.spent = 1
 AND dbo.Schedule.[date] >= '2022-12-01' 
-AND dbo.Schedule.[date] <= '2022-12-12' 
+AND dbo.Schedule.[date] <= '2022-12-31' 
 
 SELECT COUNT(*) AS 'Запланировно Ковтун'
 FROM 
@@ -22,7 +22,7 @@ AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Ковтун%')
 AND dbo.Schedule.spent = 0
-AND dbo.Schedule.[date] >= '2022-12-12' 
+AND dbo.Schedule.[date] >= '2022-12-31' 
 -------------------------------------------------------------------------------------------------------
 SELECT COUNT(*) AS 'Проведено Покидюк'
 FROM 
@@ -34,7 +34,7 @@ AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Покидюк%')
 AND dbo.Schedule.spent = 1
 AND dbo.Schedule.[date] >= '2022-12-01' 
-AND dbo.Schedule.[date] <= '2022-12-12' 
+AND dbo.Schedule.[date] <= '2022-12-31' 
 
 SELECT COUNT(*) AS 'Запланировно Покидюк'
 FROM 
@@ -45,7 +45,7 @@ AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Покидюк%')
 AND dbo.Schedule.spent = 0
-AND dbo.Schedule.[date] >= '2022-12-12' 
+AND dbo.Schedule.[date] >= '2022-12-31' 
 -------------------------------------------------------------------------------------------------------------
 SELECT COUNT(*) AS 'Проведено Кобылинский'
 FROM 
@@ -57,7 +57,7 @@ AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Кобылинский%')
 AND dbo.Schedule.spent = 1
 AND dbo.Schedule.[date] >= '2022-12-01' 
-AND dbo.Schedule.[date] <= '2022-12-12' 
+AND dbo.Schedule.[date] <= '2022-12-31' 
 
 SELECT COUNT(*) AS 'Запланировно Кобылинский'
 FROM 
@@ -68,7 +68,7 @@ AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
 AND dbo.Schedule.teacher = (SELECT teacher_id FROM Teachers WHERE last_name LIKE '%Кобылинский%')
 AND dbo.Schedule.spent = 0
-AND dbo.Schedule.[date] >= '2022-12-12' 
+AND dbo.Schedule.[date] >= '2022-12-31' 
 -------------------------------------------------------------------------------------------------------------
 --SELECT 
 --	dbo.Disciplines.discipline_name AS'Дисциплина', 
