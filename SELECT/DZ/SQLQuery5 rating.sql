@@ -16,4 +16,4 @@ GROUP BY
 ORDER BY
 		[Оценка 1] DESC,
 		[Оценка 2] DESC,
-		Посещаемость DESC
+		[Посещаемость] DESC

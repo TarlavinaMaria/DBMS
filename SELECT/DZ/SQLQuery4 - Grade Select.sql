@@ -20,5 +20,5 @@ AND Attendance.student = Students.stud_id
 AND Attendance.lesson = Schedule.lesson_id
 AND Schedule.discipline = Disciplines.discipline_id
 AND Schedule.[group] = Groups.group_id
-AND Schedule.[date] = '2023-12-18'
-AND Schedule.[time] = '14:30'
+--AND Schedule.[date] = '2023-12-18'
+--AND Schedule.[time] = '14:30'
