@@ -1,4 +1,4 @@
-DELETE FROM Schedule WHERE discipline = 14;
+DELETE FROM Schedule WHERE [group] LIKE 'JAVA_326' 
 
 SELECT 
 	dbo.Disciplines.discipline_name AS'Дисциплина', 

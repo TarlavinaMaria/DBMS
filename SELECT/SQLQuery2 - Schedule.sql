@@ -1,8 +1,8 @@
 --INSERT INTO dbo.Schedule VALUES (1,1, '2022-12-12', '14:30', 1,3)
 --INSERT INTO dbo.Schedule VALUES (34, 3, '2022-12-14', '14:30', 1,3)
 -- Добавление в расписание
-INSERT INTO dbo.Schedule(discipline, teacher, [date], [time], spent, [group])
-VALUES (1, 1, '2022-12-21', '14:30', 1, 3)
+--INSERT INTO dbo.Schedule(discipline, teacher, [date], [time], spent, [group])
+--VALUES (1, 7, '2022-12-21', '14:30', 1, 8)
 
 SELECT 
 	dbo.Disciplines.discipline_name AS'Дисциплина', 

@@ -3,10 +3,10 @@ Go
 
 SET DATEFIRST 1
 -- DECLARE - обьявление переменных AS
-DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Hardware-PC%')
-DECLARE @teacher			INT		 = 1
-DECLARE @group				INT		 = 3
-DECLARE @start_date			DATE	 = '2022-11-21'
+DECLARE @discipline			SMALLINT = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%Администрирование UNIX%')
+DECLARE @teacher			INT		 = 7
+DECLARE @group				INT		 = 8
+DECLARE @start_date			DATE	 = '2023-01-25'
 DECLARE @date				DATE	 = @start_date
 DECLARE @interval			INT		 = 7
 --DECLARE @interval			INT		 = IIF(DATEPART(dw, @date) = 5, 3, 2)
@@ -71,7 +71,7 @@ WHERE
 	dbo.Schedule.discipline = dbo.Disciplines.discipline_id
 AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
-AND dbo.Schedule.discipline = (SELECT discipline_id FROM dbo.Disciplines WHERE discipline_name LIKE '%Процедурное програмирование на языке С++%')
+AND dbo.Schedule.discipline = (SELECT discipline_id FROM dbo.Disciplines WHERE discipline_name LIKE '%Администрирование UNIX%')
 
 -- LIKE критерий отбора
 --SELECT * FROM dbo.Disciplines WHERE discipline_name LIKE '%Java%'
