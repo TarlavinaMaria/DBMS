@@ -16,5 +16,6 @@ WHERE
 AND Attendance.lesson = Schedule.lesson_id
 AND Schedule.discipline = Disciplines.discipline_id
 AND Schedule.[group] = Groups.group_id
+AND discipline_name LIKE '%MS SQl%'
 --AND Schedule.[date] = '2023-12-18'
 --AND Schedule.[time] = '14:30'

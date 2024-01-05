@@ -1,6 +1,6 @@
 --USE PD_212
 
-CREATE PROCEDURE dbo.mysp_addToSchedule
+ALTER PROCEDURE mysp_addToSchedule
 @group_name NVARCHAR(50),
 @discipline NVARCHAR(50),
 @teacher	INT,
