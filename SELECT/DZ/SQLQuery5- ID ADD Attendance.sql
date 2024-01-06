@@ -25,9 +25,9 @@ BEGIN
 	WHILE (@iterator <= (SELECT COUNT(stud_id) FROM Students JOIN Groups ON [group]=group_id WHERE group_name='PD_212'))
 	BEGIN
 		--DECLARE @id INT = (SELECT MAX(stud_id) FROM (SELECT TOP (@iterator) Students.stud_id FROM Students, Groups WHERE [group]=group_id AND group_name='PD_212') Students)
-		DECLARE @id INT = 31
+		DECLARE @id INT = 2
 		--DECLARE @is_present BIT = ROUND(RAND((@iterator+@lesson_id)*1000000),0)
-		DECLARE @is_present BIT = 0
+		DECLARE @is_present BIT = 1
 		
 		INSERT INTO Attendance(student, lesson, present)
 		VALUES (@id, @lesson_id, @is_present)

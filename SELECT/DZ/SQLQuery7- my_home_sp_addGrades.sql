@@ -12,7 +12,6 @@ BEGIN
 	AND discipline_name LIKE @discipline_select
 	AND spent = 1
 	)
-	--PRINT (@start_lesson_id)
 	
 	DECLARE @end_lesson_id BIGINT = 
 	(
@@ -22,20 +21,26 @@ BEGIN
 	AND discipline_name LIKE @discipline_select
 	AND spent = 1
 	)
-	--PRINT (@end_lesson_id)
-	
+
 	DECLARE @lesson_id BIGINT = @start_lesson_id
 	WHILE (@lesson_id <= @end_lesson_id)
 	BEGIN
 		DECLARE @iterator INT = 1
 		WHILE(@iterator <= (SELECT COUNT(stud_id) FROM PD_212.dbo.Students JOIN PD_212.dbo.Groups ON [group]=group_id WHERE group_name = @group_name_select))
 		BEGIN
-		    DECLARE @id INT = (SELECT MAX(stud_id) FROM (SELECT TOP (@iterator) stud_id FROM PD_212.dbo.Students, PD_212.dbo.Groups WHERE [group] = group_id AND group_name = @group_name_select) Students)
+			DECLARE @id INT = (SELECT MAX(stud_id) FROM (SELECT TOP (@iterator) stud_id FROM PD_212.dbo.Students, PD_212.dbo.Groups WHERE [group] = group_id AND group_name = @group_name_select) Students)
 			DECLARE @grade1 TINYINT = FLOOR(RAND()*(12-1+1)+1)
 			DECLARE @grade2 TINYINT = FLOOR(RAND()*(12-1+1)+1)
-			INSERT INTO PD_212.dbo.Grades(student, lesson, grade1, grade2) 
-			VALUES (@id, @lesson_id, @grade1, @grade2)
-			SET @iterator+=1
+				IF(
+				SELECT COUNT(*) 
+				FROM Grades
+				WHERE student = @id AND lesson = @lesson_id
+				) = 0
+				BEGIN
+					INSERT INTO PD_212.dbo.Grades(student, lesson, grade1, grade2) 
+					VALUES (@id, @lesson_id, @grade1, @grade2)
+				END
+					SET @iterator+=1
 		END
 		SET @lesson_id+=1
 	END

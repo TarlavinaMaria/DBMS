@@ -32,9 +32,16 @@ BEGIN
 		BEGIN
 		    DECLARE @id INT = (SELECT MAX(stud_id) FROM (SELECT TOP (@iterator) stud_id FROM PD_212.dbo.Students, PD_212.dbo.Groups WHERE [group] = group_id AND group_name = @group_name_select) Students)
 			DECLARE @is_present BIT = ROUND(RAND((@iterator+@lesson_id)*1000000),0)
-			INSERT INTO PD_212.dbo.Attendance(student, lesson, present) 
-			VALUES (@id, @lesson_id, @is_present)
-			SET @iterator+=1
+				IF(
+				SELECT COUNT(*) 
+				FROM Attendance 
+				WHERE student = student AND lesson = lesson
+				) = 0
+				BEGIN
+						INSERT INTO PD_212.dbo.Attendance(student, lesson, present) 
+						VALUES (@id, @lesson_id, @is_present)
+				END
+					SET @iterator+=1
 		END
 		SET @lesson_id+=1
 	END
